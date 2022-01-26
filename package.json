@@ -1,0 +1,85 @@
+{
+	"name": "hash-utils",
+	"displayName": "Hash Utils",
+	"description": "Encodes selected text in to base64, md5 or sha256",
+	"version": "0.0.1",
+	"publisher": "rahules",
+	"engines": {
+		"vscode": "^1.63.0"
+	},
+	"icon": "./icon.png",
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"hash",
+		"utils",
+		"encoding",
+		"base64",
+		"md5",
+		"sha256"
+	],
+	"activationEvents": [
+		"onCommand:hash-utils.toBase64",
+		"onCommand:hash-utils.fromBase64",
+		"onCommand:hash-utils.toMD5",
+		"onCommand:hash-utils.toSHA256"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "hash-utils.toBase64",
+				"when": "editorHasSelection && !editorIsReadonly",
+				"title": "Base64 Encode"
+			},
+			{
+				"command": "hash-utils.fromBase64",
+				"when": "editorHasSelection && !editorIsReadonly",
+				"title": "Base64 Decode"
+			},
+			{
+				"command": "hash-utils.toMD5",
+				"when": "editorHasSelection && !editorIsReadonly",
+				"title": "Generate MD5 Hash"
+			},
+			{
+				"command": "hash-utils.toSHA256",
+				"when": "editorHasSelection && !editorIsReadonly",
+				"title": "Generate SHA256 Hash"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out",
+		"pretest": "npm run compile-tests && npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js",
+		"test:unit": "npm run compile-tests && jest --testPathPattern=out/test/suite"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.2.0",
+		"@types/jest": "^27.4.0",
+		"@types/jest-cli": "^24.3.0",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.63.0",
+		"@typescript-eslint/eslint-plugin": "^5.9.1",
+		"@typescript-eslint/parser": "^5.9.1",
+		"@vscode/test-electron": "^2.0.3",
+		"eslint": "^8.6.0",
+		"glob": "^7.2.0",
+		"jest": "^27.4.7",
+		"jest-cli": "^27.4.7",
+		"ts-loader": "^9.2.6",
+		"typescript": "^4.5.4",
+		"webpack": "^5.66.0",
+		"webpack-cli": "^4.9.1"
+	},
+	"dependencies": {},
+	"license": "(MIT OR Apache-2.0)"
+}
