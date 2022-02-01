@@ -1,17 +1,18 @@
 import * as vscode from "vscode";
 
-export const textCommand =  (method: Function) => {
+export const textCommand =  async (method: Function) => {
     const editor = vscode.window.activeTextEditor;
 
     if (editor) {
         const document = editor.document;
-        const selection = editor.selection;
-
+        const selections = editor.selections;
         // Get the word within the selection
-        const word = document.getText(selection);
-        const encoded = method(word);
-        editor.edit(editBuilder => {
-            editBuilder.replace(selection, encoded);
-        });
+        for (const selection of selections) {
+            const word = document.getText(selection);
+            const encoded = method(word);
+            await editor.edit(editBuilder => {
+                editBuilder.replace(selection, encoded);
+            });
+        }
     }
 };
