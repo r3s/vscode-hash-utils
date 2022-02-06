@@ -9,6 +9,12 @@ Simple Visual Studio Code extension to generate base64 encoded string and md5/sh
 
 ## Release Notes
 
+### 0.1.2
+- Add SHA 512 hash funcionality
+
+### 0.1.1
+- Fix multi selection  issue
+
 ### 0.1.0
 
 - Added multi selection support
