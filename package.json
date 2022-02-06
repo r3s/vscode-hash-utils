@@ -51,6 +51,11 @@
 				"command": "hash-utils.toSHA256",
 				"when": "editorHasSelection && !editorIsReadonly",
 				"title": "Generate SHA256 Hash"
+			},
+			{
+				"command": "hash-utils.toSHA512",
+				"when": "editorHasSelection && !editorIsReadonly",
+				"title": "Generate SHA512 Hash"
 			}
 		]
 	},
@@ -84,6 +89,5 @@
 		"webpack": "^5.66.0",
 		"webpack-cli": "^4.9.1"
 	},
-	"dependencies": {},
 	"license": "MIT"
 }

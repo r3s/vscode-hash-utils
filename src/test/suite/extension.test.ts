@@ -1,6 +1,7 @@
 import { base64Decode, base64Encode } from '../../commands/base64';
 import { md5 } from '../../commands/md5';
 import { sha256 } from '../../commands/sha256';
+import { sha512 } from '../../commands/sha512';
 // import * as myExtension from '../../extension';
 
 describe("md5", () => {
@@ -89,4 +90,23 @@ describe("base64", () => {
 
 		expect(result).toEqual(decoded);
 	});
+});
+
+
+describe("sha512", () => {
+	it("creates correct sha512 string", () => {
+		const strings = ["hello", "1234567890", "﷐﷑﷒﷓﷔﷕﷖﷗﷘﷙﷚﷛﷜﷝﷞﷟﷠﷡﷢﷣﷤﷥﷦﷧﷨﷩﷪﷫﷬﷭﷮﷯", "������"];
+		const encoded = ["9b71d224bd62f3785d96d46ad3ea3d73319bfbc2890caadae2dff72519673ca72323c3d99ba5c11d7c7acc6e14b8c5da0c4663475c2e5c3adef46f73bcdec043",
+						"12b03226a6d8be9c6e8cd5e55dc6c7920caaa39df14aab92d5e3ea9340d1c8a4d3d0b8e4314f1f6ef131ba4bf1ceb9186ab87c801af0d5c95b1befb8cedae2b9",
+						"e38764fe088256bee9112b2a9510cb07315dec975e875c50b2a52331f553d3b5354ac6108e260fb22687795e02b289e728ab871a73c20085c44f651b67f7c988",
+						"d0c0cd5fba8f512678fbd51aa4e3f38b174234de8031e2d07b5c71f67904893fb7e0226652e3d7cb65aa8650b2d6239857523d1eb8a0d4e113679bd43bb3cb53"];
+
+		const result = [];
+		for (const word of strings) {
+			result.push(sha512(word));
+		}
+
+		expect(result).toEqual(encoded);
+	});
+
 });

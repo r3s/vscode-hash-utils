@@ -5,6 +5,7 @@ import { base64Decode, base64Encode } from './commands/base64';
 import { textCommand } from './commands/command';
 import { md5 } from './commands/md5';
 import { sha256 } from './commands/sha256';
+import { sha512 } from './commands/sha512';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -14,11 +15,13 @@ export function activate(context: vscode.ExtensionContext) {
 	let fromBase64Command = vscode.commands.registerCommand('hash-utils.fromBase64', () => textCommand(base64Decode));
 	let md5Command = vscode.commands.registerCommand('hash-utils.toMD5', () => textCommand(md5));
 	let sha256Command = vscode.commands.registerCommand('hash-utils.toSHA256', () => textCommand(sha256));
+	let sha512Command = vscode.commands.registerCommand('hash-utils.toSHA512', () => textCommand(sha512));
 
 	context.subscriptions.push(toBase64Command);
 	context.subscriptions.push(fromBase64Command);
 	context.subscriptions.push(md5Command);
 	context.subscriptions.push(sha256Command);
+	context.subscriptions.push(sha512Command);
 }
 
 // this method is called when your extension is deactivated
