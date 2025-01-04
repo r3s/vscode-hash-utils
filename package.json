@@ -2,7 +2,7 @@
 	"name": "hash-utils",
 	"displayName": "Hash Utils",
 	"description": "Encodes selected text in to base64, md5 or sha256",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"publisher": "rahules",
 	"repository": {
 		"type": "git",

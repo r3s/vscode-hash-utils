@@ -4,6 +4,9 @@ All notable changes to the "hash-utils" extension will be documented in this fil
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.1.3]
+- Dependency update
+
 ## [0.1.2]
 - Add SHA 512 hash funcionality
 
