@@ -9,7 +9,7 @@
 		"url": "https://github.com/r3s/vscode-hash-utils"
 	},
 	"engines": {
-		"vscode": "^1.63.0"
+		"vscode": "^1.96.0"
 	},
 	"icon": "icon.png",
 	"categories": [
